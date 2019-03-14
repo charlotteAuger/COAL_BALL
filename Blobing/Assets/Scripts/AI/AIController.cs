@@ -104,18 +104,29 @@ public class AIController : MonoBehaviour
 
     private Vector3 AimToMerge()
     {
-        Transform target = Target.Instance.aiPoints[0].transform;
+        Vector3 target = Vector3.zero;
+
+        if (Target.Instance.aiPoints.Count > 0)
+        {
+            target = Target.Instance.aiPoints[0].transform.position;
+        }
+
         shootToMax = false;
 
-        return target.position;
+        return target;
     }
 
     private Vector3 AimToEject()
     {
-        Transform target = Target.Instance.playerPoints[0].transform;
+
+        Vector3 target = Vector3.zero;
+        if (Target.Instance.playerPoints.Count > 0)
+        {
+            target = Target.Instance.playerPoints[0].transform.position;
+        }
         shootToMax = true;
 
-        return target.position;
+        return target;
     }
 
     private Vector3 FindEmptyPosition()
