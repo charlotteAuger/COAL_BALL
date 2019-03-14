@@ -87,15 +87,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68217c1016ddafd408fee8492f19200b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  scaleAmplitude: 0
-  animationTime: 0.5
   sprite: {fileID: 1590213656862178}
+  mergeFX: {fileID: 8135967446210651083, guid: a696963017669a54b840d37a22f0df98, type: 3}
+  collisionFX: {fileID: 934807462909654378, guid: 68736b97263a8234e988ec68b3a4edf9,
+    type: 3}
   rB2d: {fileID: 50581196317404758}
   pG: {fileID: 114517612583006192}
   pool: {fileID: 114615616979047980}
