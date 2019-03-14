@@ -25,8 +25,14 @@ public class GameManager : MonoBehaviour
         currentGold = saveScript.GetSavedGold();
 
         Screen.orientation = ScreenOrientation.Portrait;
+
+        Invoke("SetupMenu", 0.01f);
     }
 
+    public void SetupMenu()
+    {
+        UIManager.Instance.InitializeMainMenu(currentGold);
+    }
 
     public void StartGame()
     {

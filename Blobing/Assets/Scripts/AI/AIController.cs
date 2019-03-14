@@ -82,7 +82,6 @@ public class AIController : MonoBehaviour
 
     private Vector3 ChooseTarget()
     {
-        print(currentStrategy);
         Vector3 target = Vector3.zero;
         switch (currentStrategy)
         {

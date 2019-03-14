@@ -134,8 +134,8 @@ MonoBehaviour:
   collider: {fileID: 58723769550619666}
   pGiver: {fileID: 114517612583006192}
   sRend: {fileID: 212350387981481266}
-  playerBallSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  aiBallSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  playerBallSprite: {fileID: 21300000, guid: f01a7574806294a4896d3aed6fe5a31b, type: 3}
+  aiBallSprite: {fileID: 21300000, guid: 8f62ed0f4fe0dcc43807de4eb561f756, type: 3}
 --- !u!114 &114285226634384334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,8 +325,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f01a7574806294a4896d3aed6fe5a31b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -55,6 +55,11 @@ public class UIManager : MonoBehaviour
         aiScoreText.text = aScore.ToString();
     }
 
+    public void InitializeMainMenu(int _currentGold)
+    {
+        currentGold.text = _currentGold.ToString();
+    }
+
     public void UpdateBallsLeft(int pbLeft, int abLeft)
     {
         for (int i = 0; i < playerBallsLeft.Length; i++)
