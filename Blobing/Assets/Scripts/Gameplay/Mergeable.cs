@@ -15,12 +15,6 @@ public class Mergeable : MonoBehaviour {
     [SerializeField] private BallPool pool;
     [SerializeField] private BallList list;
 
-    private Vector3 lastVelocity;
-
-    private void Update()
-    {
-        lastVelocity = rB2d.velocity;
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

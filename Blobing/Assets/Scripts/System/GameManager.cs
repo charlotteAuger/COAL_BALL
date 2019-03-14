@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
         Screen.orientation = ScreenOrientation.Portrait;
 
+        Cursor.visible = false;
+
         Invoke("SetupMenu", 0.01f);
     }
 
