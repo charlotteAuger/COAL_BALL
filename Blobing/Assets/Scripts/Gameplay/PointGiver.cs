@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PointGiver : MonoBehaviour {
 
     [HideInInspector]public BallStats stats;
@@ -12,6 +13,7 @@ public class PointGiver : MonoBehaviour {
     [SerializeField] private GameObject sprite;
     [SerializeField] private CircleCollider2D collider;
     [SerializeField] private Rigidbody2D rB2d;
+    [HideInInspector] public PopUpScript popup;
 
     public void SetStats(BallStats _stats, bool _isOwnbedByPlayer)
     {
@@ -27,5 +29,4 @@ public class PointGiver : MonoBehaviour {
     {
         return stats.scoreValue;
     }
-
 }
