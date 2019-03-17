@@ -34,6 +34,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RawImage coinImage;
     [SerializeField] private Texture coinPile;
     [SerializeField] private Texture coinAlone;
+    [SerializeField] private TextMeshProUGUI playerScoreTransition;
+    [SerializeField] private TextMeshProUGUI aiScoreTransition;
 
     [Header("Turns")]
     [SerializeField] private GameObject turnCanvas;
@@ -103,6 +105,9 @@ public class UIManager : MonoBehaviour
            coinText.text = "+" + points;
             coinImage.texture = coinAlone;
         }
+
+        playerScoreTransition.text = playerScoreText.text;
+        aiScoreTransition.text = aiScoreText.text;
 
         totalCoinText.text = GameManager.Instance.currentGold.ToString();
 
