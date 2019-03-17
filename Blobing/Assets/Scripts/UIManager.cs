@@ -31,6 +31,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI victoryText;
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI totalCoinText;
+    [SerializeField] private RawImage coinImage;
+    [SerializeField] private Texture coinPile;
+    [SerializeField] private Texture coinAlone;
 
     [Header("Turns")]
     [SerializeField] private GameObject turnCanvas;
@@ -92,11 +95,13 @@ public class UIManager : MonoBehaviour
         {
             victoryText.text = "you won!";
             coinText.text = "+" + points*2;
+            coinImage.texture = coinPile;
         }
         else
         {
            victoryText.text = "you lost...";
            coinText.text = "+" + points;
+            coinImage.texture = coinAlone;
         }
 
         totalCoinText.text = GameManager.Instance.currentGold.ToString();
