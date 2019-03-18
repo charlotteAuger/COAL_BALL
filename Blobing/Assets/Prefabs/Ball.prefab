@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4569114882987614
 Transform:
   m_ObjectHideFlags: 0
@@ -51,11 +51,11 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 3
+  m_LinearDrag: 3.2
   m_AngularDrag: 1
   m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Material: {fileID: 6200000, guid: 9100f468946146e42bf171173d644740, type: 2}
+  m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   pG: {fileID: 114517612583006192}
   pool: {fileID: 114615616979047980}
   list: {fileID: 11400000, guid: 62dadf63f66968c41a2957991d3e5a49, type: 2}
+  pastVelocities: []
 --- !u!114 &114517612583006192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +114,7 @@ MonoBehaviour:
   sprite: {fileID: 1590213656862178}
   collider: {fileID: 58723769550619666}
   rB2d: {fileID: 50581196317404758}
+  popup: {fileID: 0}
 --- !u!114 &114615616979047980
 MonoBehaviour:
   m_ObjectHideFlags: 0

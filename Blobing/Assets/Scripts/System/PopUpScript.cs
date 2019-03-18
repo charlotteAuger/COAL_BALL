@@ -6,39 +6,54 @@ using TMPro;
 public class PopUpScript : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    [SerializeField] private GameObject popupGameObject;
     [SerializeField] private Vector3 offset;
 
     [SerializeField] private TextMeshProUGUI popupText;
+    [SerializeField] private Color playerColor;
+    [SerializeField] private Color aiColor;
+
+    private Coroutine popUpCo;
 
     private void Awake()
     {
         target.GetComponent<PointGiver>().popup = this;
     }
 
-    private void Update()
+    public void StartDisplay(int value, bool sign, bool isPlayer)
     {
-        if (target.gameObject.activeInHierarchy)
+        if (popUpCo == null)
         {
-            if (!popupGameObject.activeInHierarchy) { popupGameObject.SetActive(true); }
-
-            transform.position = target.position + offset;
+            popUpCo = StartCoroutine(DisplayPointChange(value, sign, isPlayer));
         }
         else
         {
-            if (popupGameObject.activeInHierarchy) { popupGameObject.SetActive(false); }
+            StopCoroutine(popUpCo);
+            popUpCo = StartCoroutine(DisplayPointChange(value, sign, isPlayer));
         }
     }
 
-
-    public IEnumerator DisplayPointChange(int value, bool sign)
+    public IEnumerator DisplayPointChange(int value, bool sign, bool isPlayer)
     {
-        popupText.text = sign ? value.ToString() : (-value).ToString();
+        transform.position = target.position + offset;
+        popupText.text = sign ? "+"+value.ToString() : (-value).ToString();
+        popupText.color = isPlayer ? playerColor : aiColor;
+        yield return null;
         popupText.enabled = true;
 
         yield return new WaitForSeconds(0.5f);
 
         popupText.enabled = false;
+        popUpCo = null;
+    }
+
+    public void ClearPopup()
+    {
+        if (popUpCo != null)
+        {
+            StopCoroutine(popUpCo);
+            popupText.enabled = false;
+
+        }
     }
 
 }

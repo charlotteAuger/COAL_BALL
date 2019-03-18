@@ -15,6 +15,34 @@ public class Mergeable : MonoBehaviour {
     [SerializeField] private BallPool pool;
     [SerializeField] private BallList list;
 
+    public List<Vector3> pastVelocities = new List<Vector3>();
+
+    private Vector3 GetAveragedVelocity()
+    {
+        Vector3 averagedVelocity = Vector3.zero;
+
+        for (int i = 1; i < pastVelocities.Count; i++)
+        {
+            averagedVelocity += pastVelocities[i];
+            print("add : " + pastVelocities[i]);
+        }
+
+        averagedVelocity = averagedVelocity / (pastVelocities.Count - 1);
+
+        print("averaged = " + averagedVelocity);
+
+        return averagedVelocity;
+    }
+
+    private void FixedUpdate()
+    {
+        pastVelocities.Insert(0, rB2d.velocity);
+
+        if (pastVelocities.Count > 4)
+        {
+            pastVelocities.RemoveAt(4);
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -50,9 +78,20 @@ public class Mergeable : MonoBehaviour {
 
     private void Absorb(int ballTypeId, Vector3 v)
     {
+        int lastValue = pG.stats.scoreValue;
         BallStats bS = list.balls[ballTypeId];
         StartCoroutine(ScaleWobble(bS.scale));
         pG.SetStats(bS, pG.isOwnedByPlayer);
+        int pointDiff = bS.scoreValue - lastValue;
+        if (Target.Instance.playerPoints.Contains(pG) && pG.isOwnedByPlayer)
+        {
+            pG.popup.StartDisplay(pointDiff, true, pG.isOwnedByPlayer);
+        }
+        else if (Target.Instance.aiPoints.Contains(pG) && !pG.isOwnedByPlayer)
+        {
+            pG.popup.StartDisplay(pointDiff, true, pG.isOwnedByPlayer);
+        }
+
         rB2d.velocity = v;
     }
 

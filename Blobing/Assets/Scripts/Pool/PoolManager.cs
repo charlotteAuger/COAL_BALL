@@ -52,6 +52,7 @@ public class PoolManager : MonoBehaviour
         foreach (BallPool p in spawnedBalls)
         {
             p.Disable();
+            p.GetComponent<PointGiver>().popup.ClearPopup();
         }
     }
 }

@@ -28,10 +28,12 @@ public class Target : MonoBehaviour {
             if (pG.isOwnedByPlayer && !playerPoints.Contains(pG))
             {
                 playerPoints.Add(pG);
+                pG.popup.StartDisplay(pG.stats.scoreValue, true, pG.isOwnedByPlayer);
             }
             else if (!pG.isOwnedByPlayer && !aiPoints.Contains(pG))
             {
                 aiPoints.Add(pG);
+                pG.popup.StartDisplay(pG.stats.scoreValue, true, pG.isOwnedByPlayer);
 
             }
         }
@@ -45,10 +47,12 @@ public class Target : MonoBehaviour {
 
             if (pG.isOwnedByPlayer)
             {
+                pG.popup.StartDisplay(pG.stats.scoreValue, false, pG.isOwnedByPlayer);
                 playerPoints.Remove(pG);
             }
             else
             {
+                pG.popup.StartDisplay(pG.stats.scoreValue, false, pG.isOwnedByPlayer);
                 aiPoints.Remove(pG);
             }
         }
@@ -59,10 +63,12 @@ public class Target : MonoBehaviour {
         if (pG.isOwnedByPlayer && playerPoints.Contains(pG))
         {
             playerPoints.Remove(pG);
+            pG.popup.StartDisplay(pG.stats.scoreValue, false, pG.isOwnedByPlayer);
         }
         else if (!pG.isOwnedByPlayer && aiPoints.Contains(pG))
         {
             aiPoints.Remove(pG);
+            pG.popup.StartDisplay(pG.stats.scoreValue, false, pG.isOwnedByPlayer);
         }
     }
 
