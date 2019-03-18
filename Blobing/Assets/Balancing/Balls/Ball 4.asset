@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ball 4
   m_EditorClassIdentifier: 
   scale: 2
-  scoreValue: 8
+  scoreValue: 7
   growthID: 4
   mass: 4
