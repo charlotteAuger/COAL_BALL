@@ -78,6 +78,20 @@ public class UIManager : MonoBehaviour
     {
         
         turnText.text = isPlayerTurn ? "your turn!" : "enemy's turn!";
+        if (isPlayerTurn)
+        {
+            foreach (Image i in aiBallsLeft)
+            {
+                i.enabled = false;
+            }
+        }
+        else
+        {
+            foreach (Image i in playerBallsLeft)
+            {
+                i.enabled = false;
+            }
+        }
         turnCanvas.SetActive(true);
 
         yield return new WaitForSeconds(timeOnScreen);
