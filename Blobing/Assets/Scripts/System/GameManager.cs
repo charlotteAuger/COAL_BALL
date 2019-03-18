@@ -51,14 +51,14 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public IEnumerator EndGame(bool playerWins)
+    public IEnumerator EndGame(int playerWins)
     {
 
         yield return new WaitForSeconds(0.5f);
 
         int score = Target.Instance.GetPlayerScore();
 
-        currentGold += playerWins ? score * 2 : score;
+        currentGold += playerWins > 0 ? score * 2 : score;
 
         UIManager.Instance.SetTransitionUI(playerWins, score);
 

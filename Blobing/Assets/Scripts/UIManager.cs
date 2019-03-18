@@ -91,18 +91,24 @@ public class UIManager : MonoBehaviour
         mainMenuCanvas.SetActive(state);
     }
 
-    public void SetTransitionUI(bool victory, int points)
+    public void SetTransitionUI(int victory, int points)
     {
-        if (victory)
+        if (victory > 0)
         {
             victoryText.text = "you won!";
-            coinText.text = "+" + points*2;
+            coinText.text = "+" + points * 2;
             coinImage.texture = coinPile;
         }
-        else
+        else if (victory < 0)
         {
-           victoryText.text = "you lost...";
-           coinText.text = "+" + points;
+            victoryText.text = "you lost...";
+            coinText.text = "+" + points;
+            coinImage.texture = coinAlone;
+        }
+        else if (victory == 0)
+        {
+            victoryText.text = "tie";
+            coinText.text = "+" + points;
             coinImage.texture = coinAlone;
         }
 

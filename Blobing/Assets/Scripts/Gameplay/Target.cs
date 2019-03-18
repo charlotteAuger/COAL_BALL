@@ -128,9 +128,9 @@ public class Target : MonoBehaviour {
         return diff;
     }
 
-    public bool CheckIfPlayerWins()
+    public int CheckIfPlayerWins()
     { 
-        return playerScore > aiScore;
+        return playerScore - aiScore;
     }
 
     public int GetPlayerScore()
