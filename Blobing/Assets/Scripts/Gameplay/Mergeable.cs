@@ -23,7 +23,7 @@ public class Mergeable : MonoBehaviour {
 
         for (int i = 1; i < pastVelocities.Count; i++)
         {
-            averagedVelocity += pastVelocities[i];
+            averagedVelocity = averagedVelocity + pastVelocities[i];
             print("add : " + pastVelocities[i]);
         }
 
@@ -54,7 +54,8 @@ public class Mergeable : MonoBehaviour {
             if (opG.isOwnedByPlayer == pG.isOwnedByPlayer && other.rB2d.velocity.magnitude < rB2d.velocity.magnitude)
             {
                 int newGrowthValue = opG.stats.growthID + pG.stats.growthID;
-                Absorb(newGrowthValue - 1, collision.relativeVelocity);
+                Vector3 newV = other.GetAveragedVelocity()/1.1f;
+                Absorb(newGrowthValue - 1, newV);
                 other.DestroyBall();
             }
         }
